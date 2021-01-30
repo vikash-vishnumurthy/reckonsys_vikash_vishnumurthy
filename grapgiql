@@ -1,0 +1,101 @@
+QUERIES
+
+1) Query to get all the posts with related comments: posts()
+
+query {
+  posts {
+    id
+    title
+    description
+    author
+    publishDate
+    ageOfPost
+    comments {
+      text
+      author
+    }
+  }
+}
+
+2) Query to get a single post with related comments: post($id)
+
+query {
+  post(id:2) {
+    id
+    title
+    description
+    author
+    publishDate
+    ageOfPost
+    comments {
+      text
+      author
+    }
+  }
+}
+
+MUTATIONS
+
+1) createPost() mutation
+
+mutation {
+  createPost(title:"Reckonsys" description:"This is a Task on Graphene_django" author:"Dhilip"){
+    post {
+      id
+      title
+      description
+      author
+    }
+  }
+}
+
+2) updatePost($id) mutation
+
+mutation {
+  updatePost(id:4, description:"This is a task on graphene to vikash" title:"reckonsys_vikash"){
+    post {
+      id
+      title
+      description
+      author
+    }
+  }
+}
+
+3) createComment() mutation
+
+mutation {
+  createComment(postId:4 text:"I will do this task" author:"vikash"){
+    comment{
+      id 	
+      text
+      author
+      post{
+        title
+        description
+        author
+      }
+    }
+  }
+}
+
+4) deleteComment($id) mutation
+
+mutation{
+  deleteComment(id:1){
+    deletedComment{
+      id
+      text
+      author
+      post {
+      	id
+        title
+        description
+        author
+      }
+    }
+  }
+}
+
+
+

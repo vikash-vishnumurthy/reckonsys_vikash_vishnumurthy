@@ -1,0 +1,10 @@
+REQUIREMENTS:
+
+python
+django
+django_graphene
+graphene
+
+QUERIES AND MUTATIONS:
+
+All the queries and mutations are in "graphiql" file
